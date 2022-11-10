@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --config webpack/webpack.config.js --open"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,7 @@
     "@babel/preset-typescript": "^7.18.6",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
+    "babel-loader": "^9.1.0",
     "html-webpack-plugin": "^5.5.0",
     "typescript": "^4.8.4",
     "webpack": "^5.75.0",
