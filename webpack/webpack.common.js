@@ -8,7 +8,8 @@ module.exports = {
   },
   output: {
     filename: 'bundle.[chunkhash].js',
-    path: path.resolve(__dirname, '..', 'build')
+    path: path.resolve(__dirname, '..', 'build'),
+    assetModuleFilename: 'assets/img/[name].[hash].[ext]' //path created on build folder
   },
   module: {
     rules:[

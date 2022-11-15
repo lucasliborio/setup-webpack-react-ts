@@ -155,6 +155,6 @@ plugins: [
 ### Instalando o lint-staged e o Husky
 
 - Install lint-staged@4 husky
-- Crie o arquivo .lintstaged.json contendo o glob com as extensões dos arquvios que o lint-staged executará e o script a ser executado. Normalmente é um comando de lint ou de testes.
+- Crie o arquivo .lintstaged.json contendo o glob com as extensões dos arquivos que o lint-staged executará e o script a ser executado. Normalmente é um comando de lint ou de testes.
 - Rode o comando npx husky-init para instalar automaticamente o husky com o hook.
 - Dentro da pasta .husky terá um arquivo para algum determinado git hook, normalmente é o "pre-commit", nele adicione o script que será rodado, normalmente é o comando que chamada o lint-staged. Sendo assim, antes de todo commit o husky irá chamar o lint-staged e o lint staged vai buscar em todos arquivos do staged-area do git que preenchem a regra escolhida dentro do arquivo .lintstagedrc.json e rodará o comando descrito no proprio arquivo.
