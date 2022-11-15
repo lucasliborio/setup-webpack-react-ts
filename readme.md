@@ -140,6 +140,7 @@ plugins: [
 - Para integrarmos o eslint com typescript, instalamos:
   - @typescript-eslint/parser @typescript-eslint/eslint-plugin
 - Crie o arquivo de configuração .eslintrc.js adicionando corretamente os plugins instalados para react e typescript
+- **Obs: Crie o arquivo .eslintignore para adicionar exceessões no momento do lint**
 
 ### Prettier
 
@@ -151,7 +152,9 @@ plugins: [
 - Eslint é um code styles, que define padrões de estilo para o codigo
 - Prettier é um code formatter que define regras para a formatação do codigo, como por exemplo aspas, espaços, ponto e virgula
 
-
 ### Instalando o lint-staged e o Husky
+
 - Install lint-staged@4 husky
-- Crie o arquivo .lintstagedrd.json contendo a regra para os arquvios que o lint executará e o comando a ser executado.
+- Crie o arquivo .lintstaged.json contendo o glob com as extensões dos arquvios que o lint-staged executará e o script a ser executado. Normalmente é um comando de lint ou de testes.
+- Rode o comando npx husky-init para instalar automaticamente o husky com o hook.
+- Dentro da pasta .husky terá um arquivo para algum determinado git hook, normalmente é o "pre-commit", nele adicione o script que será rodado, normalmente é o comando que chamada o lint-staged. Sendo assim, antes de todo commit o husky irá chamar o lint-staged e o lint staged vai buscar em todos arquivos do staged-area do git que preenchem a regra escolhida dentro do arquivo .lintstagedrc.json e rodará o comando descrito no proprio arquivo.
