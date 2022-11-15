@@ -2,7 +2,7 @@ import React from 'react';
 import { ClickCounter } from './click-counter';
 import Image from './usnfwspatch.svg';
 
-export const App:React.FC = () => {
+export const App: React.FC = () => {
   return (
     <>
       <h1>Template webpack for React again</h1>

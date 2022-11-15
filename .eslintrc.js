@@ -12,7 +12,14 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'plugin:prettier/recommended'
+  ],
+  overrides: [
+    {
+      files: ["**/*.{ts,tsx,js,jsx}"]
+    }
   ],
   rules: {
     'on-unused-vars': 'off',
@@ -23,21 +30,5 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
-    indent: [
-      'error',
-      2
-    ],
-    'linebreak-style': [
-      'error',
-      'unix'
-    ],
-    quotes: [
-      'error',
-      'single'
-    ],
-    semi: [
-      'error',
-      'always'
-    ]
   },
 };

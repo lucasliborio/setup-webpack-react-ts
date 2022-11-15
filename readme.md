@@ -9,7 +9,8 @@
 7. Husky
 
 ### Tips
-* Entender melhor o que são module-source-map
+
+- Entender melhor o que são module-source-map
 
 ### Setup webpack
 
@@ -23,8 +24,10 @@
 8. Crie o arquivo webpack.config.js para o seus ambiente desejado.
 
 ### Config padrão .babelrc
+
 1. Adicionar em um array com os presets instalados.
-~~~javascript
+
+```javascript
 {
   "presets": [
     "@babel/preset-env",
@@ -37,11 +40,13 @@
     "@babel/preset-typescript"
   ]
 }
-~~~
+```
 
 ### Fazendo o Ts and Tsx funcionar - Loader
+
 1. Dentro do webpack.config.js adicione o objeto dentro do array "rules"
-~~~javascript
+
+```javascript
 {
   test: /\.(ts|js)x?$/,
   exclude: /node_modules/,
@@ -51,11 +56,13 @@
     }
   ]
 },
-~~~
+```
 
 ### Fazendo CSS Funcionar - Loader
+
 1. Dentro do webpack.config.js adicione dentro do array rules:
-~~~javascript
+
+```javascript
 {
   test:/\.css/,
   use:[
@@ -63,62 +70,88 @@
     'css-loader'
   ]
 }
-~~~
+```
+
 ### Fazendo Assets funcionar
+
 1. Dentro do webpack.config.js adicione dentro do array rules:
-~~~javascript
+
+```javascript
 {
     test: /\.(svg|png|jpg|gif|)$/i,
     type: 'asset/resource'
 }
-~~~
+```
 
 ### Separando os arquivos para ambientes diferentes DEV & PROD
+
 1. Confirações basica que servem para ambos ambientes ficam no arquivo webpack.common.js
 2. pequena configurções ficam no no ambiente dev e prod
 3. É criado um arquivo que mergeia as configs dentro de uma só
 4. Adicionamos --env nos scripts de "start" e "build"
-~~~json
+
+```json
 {
   "start": "webpack serve --config webpack/webpack.config.js --env env=dev --open",
   "build": "webpack --config webpack/webpack.config.js --env env=prod "
 }
-~~~
+```
 
 ## Plugins
 
 ### React Refresh webpack
+
 ##### Guarda os estados mesmo após refresh da pagina.
-* Install como dev-dependency @pmmmwh/react-refresh-webpack-plugin react-refresh
-* Adicione no webpack.config.dev a config devServer
-~~~javascript
+
+- Install como dev-dependency @pmmmwh/react-refresh-webpack-plugin react-refresh
+- Adicione no webpack.config.dev a config devServer
+
+```javascript
 devServer: {
-  hot: true
+  hot: true;
 }
-~~~
-* Após isso adicione o plugin react-refresh-webpack-plugin no array de "plugins"
-~~~javascript
-plugins: [
-  new ReactRefreshPlugin()
-]
-~~~
+```
+
+- Após isso adicione o plugin react-refresh-webpack-plugin no array de "plugins"
+
+```javascript
+plugins: [new ReactRefreshPlugin()];
+```
+
 ### Html webpack plugin
-* Install como dev-dependency html-webpack-plugin
-* Adicione no webpack.config.commom, no array de plugins
-* é necessario passar um objeto como parametro que possua a propriedade "template" com o local do arquivo html que será usado como base.
 
-~~~javascript
-plugins:[
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', 'src/index.html')
-    })
-  ]
-~~~
+- Install como dev-dependency html-webpack-plugin
+- Adicione no webpack.config.commom, no array de plugins
+- é necessario passar um objeto como parametro que possua a propriedade "template" com o local do arquivo html que será usado como base.
+
+```javascript
+plugins: [
+  new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, '..', 'src/index.html'),
+  }),
+];
+```
+
+### ESLint
+
+- Install eslint como dev-dependency
+- Para integrarmos o eslint com o react, instalamos:
+  - eslint-plugin-react eslint-plugin-react-hooks
+- Para integrarmos o eslint com typescript, instalamos:
+  - @typescript-eslint/parser @typescript-eslint/eslint-plugin
+- Crie o arquivo de configuração .eslintrc.js adicionando corretamente os plugins instalados para react e typescript
+
+### Prettier
+
+- Instale os pacotes como dev-dependency prettier eslint-config-prettier eslint-plugin-prettier para evistar conflitos com o eslint e para adicionar o prettier dentro o eslint.
+- Crie o arquivo de configuração .prettierrc.js e adicione o objeto com as regras de code formatter
+
+### Diferença entre o Eslint e Prettier
+
+- Eslint é um code styles, que define padrões de estilo para o codigo
+- Prettier é um code formatter que define regras para a formatação do codigo, como por exemplo aspas, espaços, ponto e virgula
 
 
-### ESLINT
-* Install eslint como dev-dependency
-* Para integrarmos o eslint com o react, instalamos: 
-  * eslint-plugin-react eslint-plugin-react-hooks
-* Para integrarmos o eslint com typescript, instalamos:
-  * @typescript-eslint/parser @typescript-eslint/eslint-plugin
+### Instalando o lint-staged e o Husky
+- Install lint-staged@4 husky
+- Crie o arquivo .lintstagedrd.json contendo a regra para os arquvios que o lint executará e o comando a ser executado.
