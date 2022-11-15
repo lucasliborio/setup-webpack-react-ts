@@ -23,7 +23,7 @@
 8. Crie o arquivo webpack.config.js para o seus ambiente desejado.
 
 ### Config padrão .babelrc
-1. Adicionar em um array os presets instalados.
+1. Adicionar em um array com os presets instalados.
 ~~~javascript
 {
   "presets": [
@@ -39,7 +39,7 @@
 }
 ~~~
 
-### Fazendo o Ts and Tsx funcionar
+### Fazendo o Ts and Tsx funcionar - Loader
 1. Dentro do webpack.config.js adicione o objeto dentro do array "rules"
 ~~~javascript
 {
@@ -53,7 +53,7 @@
 },
 ~~~
 
-### Fazendo CSS Funcionar
+### Fazendo CSS Funcionar - Loader
 1. Dentro do webpack.config.js adicione dentro do array rules:
 ~~~javascript
 {
@@ -84,3 +84,41 @@
   "build": "webpack --config webpack/webpack.config.js --env env=prod "
 }
 ~~~
+
+## Plugins
+
+### React Refresh webpack
+##### Guarda os estados mesmo após refresh da pagina.
+* Install como dev-dependency @pmmmwh/react-refresh-webpack-plugin react-refresh
+* Adicione no webpack.config.dev a config devServer
+~~~javascript
+devServer: {
+  hot: true
+}
+~~~
+* Após isso adicione o plugin react-refresh-webpack-plugin no array de "plugins"
+~~~javascript
+plugins: [
+  new ReactRefreshPlugin()
+]
+~~~
+### Html webpack plugin
+* Install como dev-dependency html-webpack-plugin
+* Adicione no webpack.config.commom, no array de plugins
+* é necessario passar um objeto como parametro que possua a propriedade "template" com o local do arquivo html que será usado como base.
+
+~~~javascript
+plugins:[
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '..', 'src/index.html')
+    })
+  ]
+~~~
+
+
+### ESLINT
+* Install eslint como dev-dependency
+* Para integrarmos o eslint com o react, instalamos: 
+  * eslint-plugin-react eslint-plugin-react-hooks
+* Para integrarmos o eslint com typescript, instalamos:
+  * @typescript-eslint/parser @typescript-eslint/eslint-plugin

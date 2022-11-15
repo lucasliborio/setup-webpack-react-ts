@@ -1,5 +1,5 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const webpack = require('webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack');
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
@@ -9,4 +9,4 @@ module.exports = {
     }),
     new CleanWebpackPlugin()
   ]
-}
+};

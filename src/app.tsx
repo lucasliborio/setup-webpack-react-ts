@@ -1,11 +1,14 @@
-import Image from './usnfwspatch.svg'
+import React from 'react';
+import { ClickCounter } from './click-counter';
+import Image from './usnfwspatch.svg';
 
-export const App = () => {
+export const App:React.FC = () => {
   return (
     <>
-      <h1>Template webpack for React</h1>
+      <h1>Template webpack for React again</h1>
       <p>{process.env.name}</p>
       <img src={Image}></img>
+      <ClickCounter />
     </>
-  )
-}
+  );
+};
