@@ -42,7 +42,7 @@
 }
 ```
 
-### Fazendo o Ts and Tsx funcionar no webpack- Loader
+### Fazendo o Ts and React funcionar no webpack- Loader
 
 1. Dentro do webpack.common.js adicione o objeto dentro do array "rules"
 
@@ -56,6 +56,16 @@
     }
   ]
 },
+```
+
+### React router dom on webpack
+
+1. Quando tentamos acessar uma rota que não seja a root durante o desenvolvimento, o browser nos devolve um cannot get /'name-route'. Para resolver esse problema, adicionaremos dentro da propriedade devServer
+
+```javascript
+devServer: {
+  historyApiFallback: true,
+}
 ```
 
 ### Fazendo CSS Funcionar no webpack- Loader
@@ -145,10 +155,15 @@ plugins: [
 
 1. Install eslint como dev-dependency
 2. Para integrarmos o eslint com o react, instalamos:
-  - eslint-plugin-react eslint-plugin-react-hooks
+
+- eslint-plugin-react eslint-plugin-react-hooks
+
 3. Para integrarmos o eslint com typescript, instalamos:
-  - @typescript-eslint/parser @typescript-eslint/eslint-plugin
+
+- @typescript-eslint/parser @typescript-eslint/eslint-plugin
+
 4. Crie o arquivo de configuração .eslintrc.js adicionando corretamente os plugins instalados para react e typescript
+
 - **Obs: Crie o arquivo .eslintignore para adicionar exceessões no momento do lint**
 
 ### Prettier

@@ -3,10 +3,10 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
-  plugins:[
+  plugins: [
     new webpack.DefinePlugin({
-      'process.env.name': JSON.stringify('Libório')
+      'process.env.name': JSON.stringify('Libório'),
     }),
-    new CleanWebpackPlugin()
-  ]
+    new CleanWebpackPlugin(),
+  ],
 };

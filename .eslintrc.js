@@ -14,12 +14,12 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   overrides: [
     {
-      files: ["**/*.{ts,tsx,js,jsx}"]
-    }
+      files: ['**/*.{ts,tsx,js,jsx}'],
+    },
   ],
   rules: {
     'on-unused-vars': 'off',

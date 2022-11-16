@@ -1,6 +1,6 @@
 import React from 'react';
 import { ClickCounter } from './click-counter';
-import Image from './usnfwspatch.svg';
+import Image from '../public/assets/usnfwspatch.svg';
 
 export const App: React.FC = () => {
   return (
